@@ -3,15 +3,21 @@ const ctx = canvas.getContext("2d");
 console.log(ctx);
 width = 1000;
 height = 500;
+const levelRows = 10;
+const levelCols = 20;
+const tileX = 50;
+const tileY = 50;
 guy = {
-  x: width / 2,
-  y: height - 30,
+  isJumping: false,
+  x: width / 0,
+  y: height / 0,
   width: 30,
   height: 30,
   velX: 0,
   velY: 25,
   speed: 5,
-  isJumping: false
+  tile_x: null,
+  tile_y: null
 };
 keys = [];
 
@@ -34,7 +40,6 @@ addEventListener("keyup", function(event) {
 });
 
 function moveIt(e) {
-  // keys[e.keyCode] = true;
   guy.x += guy.velX;
   guy.velX *= physics.friction;
 
@@ -85,47 +90,45 @@ window.onload = function() {
 
 physics = {
   friction: 0.9,
-  gravity: 0.2,
+  gravity: 0.1
 };
 
 const map = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
-  [1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
-  [1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,],
-  [1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,],
-  
-
-
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
 ];
+setInterval(function() {
+  console.log(`x: ${(guy.tile_x = Math.floor(guy.x / 50 + 1))}`);
+  console.log(`y: ${(guy.tile_y = Math.floor(guy.y / 50))}`);
+  console.log(guy.tile_x * guy.tile_y);
+}, 1000);
 
-const buildMap = function(){
-const mappyFind = document.getElementById('canvas').getContext('2d');
+const buildMap = function() {
+  const mapFind = document.getElementById("canvas").getContext("2d");
 
-
-for (var i = 0; i < map.length; i++) {
-    for (var j = 0; j < map[i].length; j++) {
-        if (map[i][j] === 1) {
-          mappyFind.fillStyle = 'darkgrey';
-          mappyFind.fillRect(j * 50, i * 50, 50, 50);
-        }
-
-    }
-}
-
-for (var i = 0; i < map.length; i++) {
-  for (var j = 0; j < map[i].length; j++) {
-      if (map[i][j] === 2) {
-          mappyFind.fillStyle = 'red';
-          mappyFind.fillRect(j * 50, i * 50, 50, 50);
+  for (i = 0; i < levelRows; i++) {
+    for (j = 0; j < levelCols; j++) {
+      if (map[i][j] == 1) {
+        mapFind.fillStyle = "gray";
+        mapFind.fillRect(j * tileX, i * tileY, tileX, tileY);
       }
-
+    }
   }
-}
-}
 
+  for (i = 0; i < levelRows; i++) {
+    for (j = 0; j < levelCols; j++) {
+      if (map[i][j] == 2) {
+        mapFind.fillStyle = "orange";
+        mapFind.fillRect(j * tileX, i * tileY, tileX, tileY);
+      }
+    }
+  }
+};
