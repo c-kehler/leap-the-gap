@@ -76,6 +76,7 @@ function play() {
   jump();
   moveIt();
   render();
+  buildMap();
 }
 
 window.onload = function() {
@@ -83,6 +84,48 @@ window.onload = function() {
 };
 
 physics = {
-  friction: 0.7,
-  gravity: 0.2
+  friction: 0.9,
+  gravity: 0.2,
 };
+
+const map = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
+  [1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,],
+  [1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,],
+  [1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,],
+  
+
+
+];
+
+const buildMap = function(){
+const mappyFind = document.getElementById('canvas').getContext('2d');
+
+
+for (var i = 0; i < map.length; i++) {
+    for (var j = 0; j < map[i].length; j++) {
+        if (map[i][j] === 1) {
+          mappyFind.fillStyle = 'darkgrey';
+          mappyFind.fillRect(j * 50, i * 50, 50, 50);
+        }
+
+    }
+}
+
+for (var i = 0; i < map.length; i++) {
+  for (var j = 0; j < map[i].length; j++) {
+      if (map[i][j] === 2) {
+          mappyFind.fillStyle = 'red';
+          mappyFind.fillRect(j * 50, i * 50, 50, 50);
+      }
+
+  }
+}
+}
+
