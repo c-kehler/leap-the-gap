@@ -5,12 +5,11 @@ width = 1000;
 height = 500;
 const levelRows = 10;
 const levelCols = 20;
-const tileX = 50;
-const tileY = 50;
+const tileSize = 50;
 guy = {
   isJumping: false,
-  x: width / 0,
-  y: height / 0,
+  x: 0,
+  y: 9,
   width: 30,
   height: 30,
   velX: 0,
@@ -64,11 +63,18 @@ function moveIt(e) {
 }
 
 function jump() {
+ 
   guy.velY += physics.gravity;
   guy.y += guy.velY;
   if (guy.y >= height - guy.height) {
+    if (guy.y <= 350) {
+      guy.y = 350
+    }
+    else{
     guy.y = height - guy.height;
-    guy.isJumping = false;
+     
+    }
+    guy.isJumping = false; 
   }
 }
 
@@ -105,11 +111,11 @@ const map = [
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
 ];
-setInterval(function() {
-  console.log(`x: ${(guy.tile_x = Math.floor(guy.x / 50 + 1))}`);
-  console.log(`y: ${(guy.tile_y = Math.floor(guy.y / 50))}`);
-  console.log(guy.tile_x * guy.tile_y);
-}, 1000);
+// setInterval(function() {
+//   console.log(`x: ${(guy.tile_x = Math.floor(guy.x / 50 + 1))}`);
+//   console.log(`y: ${(guy.tile_y = Math.floor(guy.y / 50))}`);
+//   console.log(guy.tile_x * guy.tile_y);
+// }, 1000);
 
 const buildMap = function() {
   const mapFind = document.getElementById("canvas").getContext("2d");
@@ -118,7 +124,7 @@ const buildMap = function() {
     for (j = 0; j < levelCols; j++) {
       if (map[i][j] == 1) {
         mapFind.fillStyle = "gray";
-        mapFind.fillRect(j * tileX, i * tileY, tileX, tileY);
+        mapFind.fillRect(j * tileSize, i * tileSize, tileSize, tileSize);
       }
     }
   }
@@ -127,8 +133,10 @@ const buildMap = function() {
     for (j = 0; j < levelCols; j++) {
       if (map[i][j] == 2) {
         mapFind.fillStyle = "orange";
-        mapFind.fillRect(j * tileX, i * tileY, tileX, tileY);
+        mapFind.fillRect(j * tileSize, i * tileSize, tileSize, tileSize);
       }
     }
   }
 };
+
+
