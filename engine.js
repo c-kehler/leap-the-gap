@@ -1,9 +1,11 @@
 const jumpSound = document.createElement("audio");
 const winSound = document.createElement("audio");
 const burnSound = document.createElement("audio");
+const screamSound = document.createElement("audio");
 winSound.src = "win.mp3";
-jumpSound.src = "jump.mp3";
+jumpSound.src = "jump2.mp3";
 burnSound.src = "burn.mp3";
+screamSound.src = "scream.mp3";
 
 let width = 1200;
 let height = 800;
@@ -331,6 +333,7 @@ function loop() {
         if (mapArray[j][i] === 2) {
           gameOver();
           burnSound.play();
+          screamSound.play();
         }
       }
     }
