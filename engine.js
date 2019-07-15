@@ -203,12 +203,10 @@ let map8 = [
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
 ];
 
-// Runs after the page has finished loading
 window.onload = function() {
   canvas = document.getElementById("canvas");
   canvas.width = width;
   canvas.height = height;
- 
 
   loop();
 };
@@ -220,11 +218,11 @@ physics = {
 };
 function button() {
   function getCursorPosition(canvas, event) {
-    const rect = canvas.getBoundingClientRect()
-    const x = event.clientX - rect.left
-    const y = event.clientY - rect.top
-}
-  const rect = canvas.getBoundingClientRect()
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+  }
+  const rect = canvas.getBoundingClientRect();
   const buttonX = 550;
   const buttonY = 550;
   const buttonWidth = 120;
@@ -238,10 +236,10 @@ function button() {
   mapFind.fillText("Restart", 610, 570);
   canvas.addEventListener("click", function(event) {
     if (
-      (event.x - rect.left) > buttonX &&
-      (event.x - rect.left) < buttonX + buttonWidth &&
-      (event.y - rect.top) > buttonY &&
-      (event.y - rect.top) < buttonY + buttonHeight
+      event.x - rect.left > buttonX &&
+      event.x - rect.left < buttonX + buttonWidth &&
+      event.y - rect.top > buttonY &&
+      event.y - rect.top < buttonY + buttonHeight
     ) {
       location.reload();
       console.log("click");
@@ -275,7 +273,6 @@ function loop() {
   addEventListener("keydown", function(event) {
     keys[event.keyCode] = true;
   });
-  
 
   addEventListener("keyup", function(event) {
     delete keys[event.keyCode];
@@ -313,7 +310,6 @@ function loop() {
       guy.isJumping = false;
     }
   }
-  // console.log(guy.velY)
 
   const calculatedTileSize = 1.0 / mapTileSize;
   const nextX = guy.x + guy.velX;
@@ -476,21 +472,18 @@ function loop() {
     }
     endLevel4 = true;
   } else if ((levelcounter >= 20) & (levelcounter < 25)) {
-    // mapFind.clearRect(0, 0, width, height);
     level(map6);
     if (endLevel5 != true) {
       resetGuy();
     }
     endLevel5 = true;
   } else if ((levelcounter >= 25) & (levelcounter < 29)) {
-    // mapFind.clearRect(0, 0, width, height);
     level(map7);
     if (endLevel6 != true) {
       resetGuy();
     }
     endLevel6 = true;
   } else if ((levelcounter >= 29) & (levelcounter <= 33)) {
-    // mapFind.clearRect(0, 0, width, height);
     level(map8);
     if (endLevel7 != true) {
       resetGuy();
