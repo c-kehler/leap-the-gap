@@ -1,3 +1,10 @@
+const jumpSound = document.createElement("audio");
+const winSound = document.createElement("audio");
+const burnSound = document.createElement("audio");
+winSound.src = "win.mp3";
+jumpSound.src = "jump.mp3";
+burnSound.src = "burn.mp3";
+
 let width = 1200;
 let height = 800;
 let canvas = null;
@@ -201,6 +208,7 @@ window.onload = function() {
   canvas = document.getElementById("canvas");
   canvas.width = width;
   canvas.height = height;
+ 
 
   loop();
 };
@@ -287,6 +295,7 @@ function loop() {
       if (!guy.isJumping) {
         guy.isJumping = true;
         guy.velY = -guy.speed * 2;
+        jumpSound.play();
       }
     }
 
@@ -325,6 +334,7 @@ function loop() {
       for (let i = currentMinX; i <= currentMaxX; i++) {
         if (mapArray[j][i] === 2) {
           gameOver();
+          burnSound.play();
         }
       }
     }
@@ -337,7 +347,7 @@ function loop() {
               levelcounter++;
             }, 50);
             clearTimeout();
-          } else if ((endLevel7 = true)) {
+          } else if ((levelcounter >= 30) & (levelcounter <= 33)) {
             mapFind.clearRect(0, 0, canvas.width, canvas.height);
             youWin();
           }
@@ -496,8 +506,9 @@ function loop() {
   for (let j = currentMinY; j <= currentMaxY; j++) {
     for (let i = currentMinX; i <= currentMaxX; i++) {
       if (map7[j][i] === 3) {
-        if (endLevel7 === true) {
+        if ((levelcounter >= 30) & (levelcounter <= 33)) {
           youWin();
+          winSound.play();
         }
       }
     }
