@@ -257,6 +257,7 @@ function youWin() {
   mapFind.lineWidth = 8;
   mapFind.strokeText("You Win!", 600, 500);
   button();
+  winSound.play();
 }
 
 function gameOver() {
@@ -504,7 +505,6 @@ function loop() {
       if (map7[j][i] === 3) {
         if ((levelcounter >= 30) & (levelcounter <= 33)) {
           youWin();
-          winSound.play();
         }
       }
     }
