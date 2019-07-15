@@ -1,0 +1,18 @@
+canvas {
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 1200px;
+  margin-bottom: 40px;
+}
+
+div {
+  font-size: 100px;
+  font-family: 'Bahianita', cursive;
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+}
+
+body {
+  background-image: url("https://boundlesstech.net/wp-content/uploads/2018/12/Background-opera-speeddials-community-web-simple-backgrounds.jpg");
+}

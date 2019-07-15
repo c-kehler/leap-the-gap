@@ -10,6 +10,7 @@ let endLevel3 = false;
 let endLevel4 = false;
 let endLevel5 = false;
 let endLevel6 = false;
+let endLevel7 = false;
 
 let guy = {
   isJumping: false,
@@ -166,11 +167,30 @@ let map7 = [
   [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+];
+
+let map8 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
@@ -190,7 +210,48 @@ physics = {
   friction: 0.95,
   gravity: 0.8
 };
-function endGameScreen() {
+function button() {
+  function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+}
+  const rect = canvas.getBoundingClientRect()
+  const buttonX = 550;
+  const buttonY = 550;
+  const buttonWidth = 120;
+  const buttonHeight = 30;
+
+  mapFind.fillStyle = "red";
+
+  mapFind.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+  mapFind.fillStyle = "white";
+  mapFind.font = "20px Arial";
+  mapFind.fillText("Restart", 610, 570);
+  canvas.addEventListener("click", function(event) {
+    if (
+      (event.x - rect.left) > buttonX &&
+      (event.x - rect.left) < buttonX + buttonWidth &&
+      (event.y - rect.top) > buttonY &&
+      (event.y - rect.top) < buttonY + buttonHeight
+    ) {
+      location.reload();
+      console.log("click");
+    }
+  });
+}
+function youWin() {
+  mapFind.font = "200px Arial";
+  mapFind.fillStyle = "green";
+  mapFind.textAlign = "center";
+  mapFind.fillText("You Win!", 600, 500);
+  mapFind.strokeStyle = "white";
+  mapFind.lineWidth = 8;
+  mapFind.strokeText("You Win!", 600, 500);
+  button();
+}
+
+function gameOver() {
   mapFind.font = "200px Arial";
   mapFind.fillStyle = "red";
   mapFind.textAlign = "center";
@@ -198,34 +259,15 @@ function endGameScreen() {
   mapFind.strokeStyle = "white";
   mapFind.lineWidth = 8;
   mapFind.strokeText("Game Over", 600, 500);
-  const buttonX = 550;
-  const buttonY = 550;
-  const buttonW = 120;
-  const buttonH = 30;
-
-  mapFind.fillStyle = "red";
-
-  mapFind.fillRect(buttonX, buttonY, buttonW, buttonH);
-  mapFind.fillStyle = "white";
-  mapFind.font = "20px Arial";
-  mapFind.fillText("Restart", 610, 570);
-  canvas.addEventListener("click", function(event) {
-    if (
-      event.x > buttonX &&
-      event.x < buttonX + buttonW &&
-      event.y > buttonY &&
-      event.y < buttonY + buttonH
-    ) {
-      location.reload();
-      console.log("click");
-    }
-  });
+  button();
 }
+
 function loop() {
   mapFind = canvas.getContext("2d");
   addEventListener("keydown", function(event) {
     keys[event.keyCode] = true;
   });
+  
 
   addEventListener("keyup", function(event) {
     delete keys[event.keyCode];
@@ -262,7 +304,6 @@ function loop() {
       guy.isJumping = false;
     }
   }
-
   // console.log(guy.velY)
 
   const calculatedTileSize = 1.0 / mapTileSize;
@@ -283,7 +324,23 @@ function loop() {
     for (let j = currentMinY; j <= currentMinY; j++) {
       for (let i = currentMinX; i <= currentMaxX; i++) {
         if (mapArray[j][i] === 2) {
-          endGameScreen();
+          gameOver();
+        }
+      }
+    }
+
+    for (let j = currentMinY; j <= currentMaxY; j++) {
+      for (let i = currentMinX; i <= currentMaxX; i++) {
+        if (mapArray[j][i] === 3) {
+          if (endLevel7 === false) {
+            setTimeout(function() {
+              levelcounter++;
+            }, 50);
+            clearTimeout();
+          } else if ((endLevel7 = true)) {
+            mapFind.clearRect(0, 0, canvas.width, canvas.height);
+            youWin();
+          }
         }
       }
     }
@@ -310,18 +367,6 @@ function loop() {
               physics.gravity = 0.4;
             }
           }
-        }
-      }
-    }
-    for (let j = currentMinY; j <= currentMaxY; j++) {
-      for (let i = currentMinX; i <= currentMaxX; i++) {
-        if (mapArray[j][i] === 3) {
-          setTimeout(function() {
-            levelcounter++;
-          }, 50);
-          clearTimeout();
-
-          console.log(levelcounter);
         }
       }
     }
@@ -427,13 +472,20 @@ function loop() {
       resetGuy();
     }
     endLevel5 = true;
-  } else if (levelcounter >= 25) {
+  } else if ((levelcounter >= 25) & (levelcounter < 29)) {
     // mapFind.clearRect(0, 0, width, height);
     level(map7);
     if (endLevel6 != true) {
       resetGuy();
     }
     endLevel6 = true;
+  } else if ((levelcounter >= 29) & (levelcounter <= 33)) {
+    // mapFind.clearRect(0, 0, width, height);
+    level(map8);
+    if (endLevel7 != true) {
+      resetGuy();
+    }
+    endLevel7 = true;
   }
 
   mapFind.fillRect(guy.x, guy.y, guy.width, guy.height);
@@ -441,4 +493,13 @@ function loop() {
   requestAnimationFrame(loop);
   moveIt();
   jump();
+  for (let j = currentMinY; j <= currentMaxY; j++) {
+    for (let i = currentMinX; i <= currentMaxX; i++) {
+      if (map7[j][i] === 3) {
+        if (endLevel7 === true) {
+          youWin();
+        }
+      }
+    }
+  }
 }
