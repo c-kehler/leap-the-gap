@@ -10,7 +10,7 @@ canvas {
 
 div {
   margin: 0;
-  text-shadow: 2px 2px #ff0000;
+  text-shadow: 2px 2px;
   list-style: none;
   display: flex;
   align-items: center;
@@ -19,12 +19,32 @@ div {
   font-family: "Bahianita", cursive;
   text-align: center;
   margin: 20px 20px 20px 20px;
+  animation: rainbow 10s linear infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    text-shadow: 2px 2px red;
+  }
+  20% {
+    text-shadow: 2px 2px blue;
+  }
+  40% {
+    text-shadow: 2px 2px green;
+  }
+  60% {
+    text-shadow: 2px 2px yellow;
+  }
+  80% {
+    text-shadow: 2px 2px violet;
+  }
+  100% {
+    text-shadow: 2px 2px red;
+  }
 }
 
 body {
   background-image: url("https://boundlesstech.net/wp-content/uploads/2018/12/Background-opera-speeddials-community-web-simple-backgrounds.jpg");
-  /* background-image: url("https://images.unsplash.com/photo-1475965894430-b05c9d13568a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2448&q=80"); */
-  /* background-image: url("https://images.unsplash.com/photo-1505562130589-9879683e72da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80"); */
   background-repeat: no-repeat;
   background-size: auto;
 }
