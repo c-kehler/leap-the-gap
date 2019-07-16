@@ -1,3 +1,4 @@
+//sound effects
 const jumpSound = document.createElement("audio");
 const winSound = document.createElement("audio");
 const burnSound = document.createElement("audio");
@@ -37,24 +38,8 @@ function resetGuy() {
 }
 
 const mapTileSize = 50;
-let clearmap = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0]
-];
+
+//2d map arrays
 let map = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -209,8 +194,10 @@ window.onload = function() {
   canvas = document.getElementById("canvas");
   canvas.width = width;
   canvas.height = height;
+  
 
   loop();
+ 
 };
 keys = [];
 
@@ -218,7 +205,7 @@ physics = {
   friction: 0.95,
   gravity: 0.8
 };
-function button() {
+function restartButton() {
   function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -248,6 +235,17 @@ function button() {
     }
   });
 }
+function howTo() {
+  mapFind.font = "20px Arial";
+  mapFind.fillStyle = "white";
+  mapFind.textAlign = "center";
+  mapFind.fillText("W and D to move", 600, 150);
+  mapFind.fillText("Space to Jump", 600, 200);
+  mapFind.fillText("You can only move by jumping", 600, 250);
+  mapFind.fillText("Walls are sticky and platforms aren't as stable as they appear!", 600, 300);
+  mapFind.lineWidth = 8;
+}
+
 function youWin() {
   mapFind.font = "200px Arial";
   mapFind.fillStyle = "green";
@@ -256,7 +254,7 @@ function youWin() {
   mapFind.strokeStyle = "white";
   mapFind.lineWidth = 8;
   mapFind.strokeText("You Win!", 600, 500);
-  button();
+  restartButton();
   winSound.play();
 }
 
@@ -268,7 +266,7 @@ function gameOver() {
   mapFind.strokeStyle = "white";
   mapFind.lineWidth = 8;
   mapFind.strokeText("Game Over", 600, 500);
-  button();
+  restartButton();
 }
 
 function loop() {
@@ -313,7 +311,7 @@ function loop() {
       guy.isJumping = false;
     }
   }
-
+  //collision position math
   const calculatedTileSize = 1.0 / mapTileSize;
   const nextX = guy.x + guy.velX;
   const nextY = guy.y + guy.velY;
@@ -328,6 +326,7 @@ function loop() {
   const nextMinY = (nextY * calculatedTileSize) | 0;
   const nextMaxY = ((nextY + guy.height) * calculatedTileSize) | 0;
 
+  //is player in lava
   function level(mapArray) {
     for (let j = currentMinY; j <= currentMinY; j++) {
       for (let i = currentMinX; i <= currentMaxX; i++) {
@@ -338,7 +337,7 @@ function loop() {
         }
       }
     }
-
+    //is player in goldbox
     for (let j = currentMinY; j <= currentMaxY; j++) {
       for (let i = currentMinX; i <= currentMaxX; i++) {
         if (mapArray[j][i] === 3) {
@@ -380,7 +379,7 @@ function loop() {
         }
       }
     }
-
+//map draw code
     for (let j = 0; j < mapArray.length; j++) {
       for (let i = 0; i < mapArray[0].length; i++) {
         if (map[j][i] === 2) {
@@ -448,7 +447,8 @@ function loop() {
   guy.y = guy.y + guy.velY;
 
   if (levelcounter === 1) {
-    level(map);
+    level(map)
+    howTo() ;
   } else if ((levelcounter >= 2) & (levelcounter < 7)) {
     level(map2);
     isJumping = true;
