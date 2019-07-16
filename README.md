@@ -16,9 +16,7 @@
 -vanilla js, css, html5
 
 ## launch/build
--how do run the game for users who clone your repo
-
--normally something like `npm install` then `npm run start` or for this type of vanilla project.
+-clone repo, open index.html in your preferred web browser. 
 
 ## major problems & solutions
 -Collision detection based on the two dimensional tile array was a big hurdle. The implementation I use calculates both where the player character is on the map and where he will be next to determine whether or not the can continue moving. This allows the collision detection to only have to calculate a small area surrounding the player instead of the entire map. 
