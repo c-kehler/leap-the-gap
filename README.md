@@ -53,4 +53,4 @@ for (let j = currentMinY; j <= currentMinY; j++) {
   ```
   
   
- 
+ ![](gameplay.gif)
