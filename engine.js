@@ -475,7 +475,6 @@ function loop() {
     }
     endLevel3 = true;
   } else if ((levelcounter >= 16) & (levelcounter <= 19)) {
-    // mapFind.clearRect(0, 0, width, height);
     level(map5);
     if (endLevel4 != true) {
       resetGuy();
@@ -516,4 +515,3 @@ function loop() {
     }
   }
 }
-
