@@ -235,6 +235,11 @@ function restartButton() {
     }
   });
 }
+window.onkeydown = function(e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+};
 function howTo() {
   mapFind.font = "20px Arial";
   mapFind.fillStyle = "white";
