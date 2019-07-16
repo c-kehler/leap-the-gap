@@ -239,7 +239,7 @@ function howTo() {
   mapFind.font = "20px Arial";
   mapFind.fillStyle = "white";
   mapFind.textAlign = "center";
-  mapFind.fillText("A and D to move", 600, 150);
+  mapFind.fillText("W and D to move", 600, 150);
   mapFind.fillText("Space to Jump", 600, 200);
   mapFind.fillText("You can only move by jumping", 600, 250);
   mapFind.fillText("Walls are sticky and platforms aren't as stable as they appear!", 600, 300);
