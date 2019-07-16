@@ -1,5 +1,3 @@
-# leap-the-gap
-
 # Leap the Gap
 -A canvas platformer
 
