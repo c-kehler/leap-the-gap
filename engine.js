@@ -235,11 +235,7 @@ function restartButton() {
     }
   });
 }
-window.onkeydown = function(e) {
-  if (e.keyCode == 32 && e.target == document.body) {
-    e.preventDefault();
-  }
-};
+
 function howTo() {
   mapFind.font = "20px Arial";
   mapFind.fillStyle = "white";
@@ -273,7 +269,12 @@ function gameOver() {
   mapFind.strokeText("Game Over", 600, 500);
   restartButton();
 }
-
+//prevents space from scrolling
+window.onkeydown = function(e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+};
 function loop() {
   mapFind = canvas.getContext("2d");
   addEventListener("keydown", function(event) {
@@ -515,3 +516,4 @@ function loop() {
     }
   }
 }
+
